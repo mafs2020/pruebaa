@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 // formularios Reactivos
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -12,20 +13,26 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import { CardComponent } from '../components/card/card.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
 
 const modulos = [MatCardModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule, MatFormFieldModule, ReactiveFormsModule, FormsModule];
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
+    HeaderComponent
   ],
   imports: [
+    RouterModule,
     CommonModule,
-    ...modulos
+    ...modulos,
   ],
   exports: [
+    RouterModule,
     ...modulos,
-    CardComponent
+    CardComponent,
+    HeaderComponent,
   ]
 })
 export class SharedModule { }

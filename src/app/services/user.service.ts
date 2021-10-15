@@ -9,12 +9,13 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
   token: string = '';
+  tokenLocalstorage: string = 'token';
   constructor(private http: HttpClient) { }
 
   entrar(data: any): Observable<any> {
     return this.http.post(`${environment.server}/api/login`, data)
       .pipe(
-        tap((data: any) => this.token = data.token),
+        tap((data: any) => this.setToken = data.token),
         catchError(this.errorCustom)
       );
   }
@@ -40,6 +41,12 @@ export class UserService {
   }
 
   get getToken() {
-    return this.token.length > 1;
+    const token = localStorage.getItem( this.tokenLocalstorage ) ?? '';
+    return token.length > 1;
+  }
+
+  set setToken(token: string) {
+    this.token = token;
+    localStorage.setItem(this.tokenLocalstorage, this.token);
   }
 }

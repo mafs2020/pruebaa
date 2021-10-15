@@ -8,6 +8,8 @@ import { EntrarComponent } from './entrar/entrar.component';
 
 import { SharedModule } from '../shared/shared.module';
 
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class AuthModule { }

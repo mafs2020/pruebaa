@@ -8,6 +8,7 @@ import { PagesComponent } from './pages.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { DashboradComponent } from './dashborad/dashborad.component';
 
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboradComponent } from './dashborad/dashborad.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    // RouterModule
   ]
 })
 export class PagesModule { }
