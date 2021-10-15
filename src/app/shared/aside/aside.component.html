@@ -1,7 +1,13 @@
-{{ mostrar }}
 <div [ngClass]="{'asidebarGrid': true, 'mostrar': mostrar}">
-    {{ mostrar }}
-    <p>este es el sidebar</p>
+    <button (click)="cerrar()">x</button>
+    <div *ngIf="userObser$ | async as user" >
+        <p>{{user.data.id}}</p>
+        <p>{{user.data.email}}</p>
+        <p>{{user.data.first_name}}</p>
+        <p>{{user.data.last_name}}</p>
+        <img width="100%" [src]="user.data.avatar" alt="">
+    </div>
+    
 </div>
 
 

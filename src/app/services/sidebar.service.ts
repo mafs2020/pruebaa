@@ -11,8 +11,13 @@ export class SidebarService {
   constructor() { }
 
   cambiar(){
-    this.mostrar = !this.mostrar;
+    this.mostrar = false;
     console.log(this.mostrar);
+    this.mostrarObser.next(this.mostrar);
+  }
+
+  cerrar() {
+    this.mostrar = true;
     this.mostrarObser.next(this.mostrar);
   }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { IResponse, IUser } from '../interfaces';
 import { environment } from 'src/environments/environment';
@@ -13,6 +13,8 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
   personajesKey = 'personajes';
+  userObser: Subject<any> = new Subject();
+  userObser$ = this.userObser.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -80,5 +82,13 @@ export class DataService {
       return rest;
     });
     return d;
+  }
+
+  getSingleUser(idUser: string|number): Observable<IUser>{
+    return this.http.get<IUser>(`${environment.server}/api/users/${idUser}`)
+    .pipe(
+      tap(data => this.userObser.next(data)),
+      catchError(this.errorCustom)
+    );
   }
 }

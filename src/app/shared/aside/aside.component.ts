@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
@@ -8,12 +9,24 @@ import { SidebarService } from 'src/app/services/sidebar.service';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
-  mostrar = this.asidebarServices.mostrar;
-  ff = this.asidebarServices.observable$;
-  constructor(private asidebarServices: SidebarService) { }
+  mostrar=false;
+  mostrarOb = this.asidebarServices.observable$;
+  userObser$ = this.dtServices.userObser;
+
+  constructor(
+    private asidebarServices: SidebarService,
+    private dtServices: DataService
+  ) { }
 
   ngOnInit(): void {
-    this.ff.subscribe(data => this.mostrar = data);
+    this.mostrarOb.subscribe(data => {
+      this.mostrar = data;
+      console.log(this.mostrar);
+    });
+  }
+
+  cerrar(){
+    this.asidebarServices.cerrar();
   }
 
 }
