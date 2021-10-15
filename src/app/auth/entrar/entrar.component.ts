@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 function comparePasswordF(c: AbstractControl): { [key: string]: boolean } | null {
@@ -23,7 +24,8 @@ export class EntrarComponent implements OnInit {
   register: boolean = false;
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -54,7 +56,7 @@ export class EntrarComponent implements OnInit {
   }
 
   get passwordControl(): AbstractControl {
-    console.log('passwordControl', this.formulario.get('comparePassword.passwordDos')!.hasError('diferente'));
+    // console.log('passwordControl', this.formulario.get('comparePassword.passwordDos')!.hasError('diferente'));
     return this.formulario.get('comparePassword.password')!;
   }
   get passwordControlDos(): AbstractControl {
@@ -95,6 +97,9 @@ export class EntrarComponent implements OnInit {
   login() {
     const d = { email: this.formulario.get('nombre')?.value, password: this.formulario.get('comparePassword.password')?.value };
     console.log('d :>> ', d);
-    this.userService.entrar(d).subscribe(data => console.log(data));
+    this.userService.entrar(d).subscribe(data => {
+      this.router.navigate(['/dashboard']);
+      console.log(data);
+    });
   }
 }
