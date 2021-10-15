@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces';
 
@@ -12,7 +13,6 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('');
   }
 
 }
