@@ -13,10 +13,11 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
   
+  
   constructor(private http: HttpClient) { }
 
   getUsers( paginacion = 1 ): Observable<IResponse>{
-    return this.http.get<IResponse>(`${environment.server}?page=${paginacion}`)
+    return this.http.get<IResponse>(`${environment.server}/api/users?page=${paginacion}`)
       .pipe(catchError(this.errorCustom));
   }
 

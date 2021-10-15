@@ -22,8 +22,6 @@ export class DashboradComponent implements OnInit {
 
   paginacionAdelante(){
     this.paginacion +=1;
-    // console.log('fffffffffff', this.paginacion);
-    // console.log('fffffffffff', this.response!.total_pages);
     if(this.response!.total_pages >= this.paginacion) this.response!.total_pages = this.paginacion;
     this.dataService.getUsers(this.paginacion).subscribe(data => this.response = data);
   }

@@ -2,10 +2,9 @@
     <div>
         <app-card *ngFor="let item of response?.data" [user]="item" ></app-card>
     </div>
-    <hr />
-    <div>
-        
-        <button mat-button color="warn" [disabled]="this.paginacion <= 1" (click)="paginacionAtras()">regresar</button>
-        <button mat-button color="primary" [disabled]="this.paginacion === response?.total_pages" (click)="paginacionAdelante()">avanzar</button>
-    </div>
+</div>
+<hr />
+<div style="text-align: center; margin-bottom: 1rem;">
+    <button mat-button color="warn" [disabled]="this.paginacion <= 1" (click)="paginacionAtras()">regresar</button>
+    <button mat-button color="primary" [disabled]="this.paginacion === response?.total_pages" (click)="paginacionAdelante()">avanzar</button>
 </div>

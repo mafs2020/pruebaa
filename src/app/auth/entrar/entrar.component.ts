@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 function comparePasswordF(c: AbstractControl): { [key: string]: boolean } | null {
   const password = c.get('password');
@@ -20,24 +21,28 @@ export class EntrarComponent implements OnInit {
 
   formulario!: FormGroup;
   register: boolean = false;
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
   }
 
+
   iniciarFormulario(): void {
     this.formulario = this.fb.group({
-      nombre: ['', {
+      nombre: ['eve.holt@reqres.in', {
         // updateOn: 'blur',
         validators: Validators.required,
       }],
       comparePassword: this.fb.group({
-        password: ['', {
+        password: ['cityslicka', {
           validators: Validators.required,
           // asyncValidators: []
         }],
-        passwordDos: ['', Validators.required],
+        passwordDos: '',
       // }, {validators: comparePasswordF} )
       })
     });
@@ -85,6 +90,11 @@ export class EntrarComponent implements OnInit {
       this.formulario?.get('comparePassword')?.clearValidators();
       this.formulario?.updateValueAndValidity();
     }
+  }
 
+  login() {
+    const d = { email: this.formulario.get('nombre')?.value, password: this.formulario.get('comparePassword.password')?.value };
+    console.log('d :>> ', d);
+    this.userService.entrar(d).subscribe(data => console.log(data));
   }
 }

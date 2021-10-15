@@ -16,7 +16,7 @@
                 <div formGroupName="comparePassword">
                     <mat-form-field class="example-form-field" appearance="fill">
                         <mat-label>Contraseña</mat-label>
-                        <input class="color" matInput type="text" formControlName="password" name="value">
+                        <input class="color" matInput type="password" formControlName="password" name="value">
                         <button matSuffix mat-icon-button aria-label="Clear">
                         <!-- <mat-icon>close</mat-icon> -->
                         </button>
@@ -31,7 +31,7 @@
                     <a routerLink="/inicio">
                         <button mat-raised-button>Regresar</button>
                     </a>
-                    <button [disabled]="formulario.invalid" mat-raised-button color="primary">Entrar</button>
+                    <button (click)="login()" [disabled]="formulario.invalid" mat-raised-button color="primary">Entrar</button>
                 </div>
             </form>
             <ng-template #registroA>
