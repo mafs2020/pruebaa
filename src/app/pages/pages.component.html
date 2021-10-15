@@ -1,2 +1,45 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<!-- <mat-sidenav-container> -->
+    <!-- <mat-sidenav-content> -->
+        <!-- <mat-sidenav> -->
+        <div class="dlex">
+
+            
+        <app-aside></app-aside>
+        <!-- </mat-sidenav> -->
+        <!-- <mat-select #mode value="side"></mat-select>
+        <mat-drawer class="w300" #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
+        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
+        <div class="mainGrid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+
+
+
+
+<!-- <div class="w3-sidebar w3-bar-block" style="width:25%; background-color: chartreuse; height: 100%;">
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div> -->
+
+<!-- <div style="margin-left:25%"></div> -->
+
+
+<!-- <app-header></app-header>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <mat-sidenav>
+            <app-aside></app-aside>
+        </mat-sidenav>
+        <mat-drawer class="w300" #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
+        <mat-select #mode value="push"></mat-select>
+        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->

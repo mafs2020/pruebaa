@@ -1,0 +1,33 @@
+.example-container {
+    width: 400px;
+    height: 100%;
+    margin: 12px;
+    border: 1px solid #555;
+}
+
+mat-drawer-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.w300{
+    background-color: red;
+}
+
+
+.asidebarGrid{
+    width: 20%;
+    height: 100%;
+    background-color: rosybrown;
+    position: fixed;
+    left: 0;
+    top: 5.2rem;
+    z-index: 1;
+}
+
+
+.mostrar{
+    display: none;
+}

@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-
-  constructor(private router: Router) {
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+  constructor() {
     // this.router.events.subscribe(dt => console.log(dt));
   }
 

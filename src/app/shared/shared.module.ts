@@ -15,13 +15,17 @@ import { CardComponent } from '../components/card/card.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
+import { AsideComponent } from './aside/aside.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSelectModule} from '@angular/material/select';
 
-const modulos = [MatCardModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule, MatFormFieldModule, ReactiveFormsModule, FormsModule];
+const modulos = [MatSelectModule, MatSidenavModule, MatCardModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule, MatFormFieldModule, ReactiveFormsModule, FormsModule];
 
 @NgModule({
   declarations: [
     CardComponent,
-    HeaderComponent
+    HeaderComponent,
+    AsideComponent
   ],
   imports: [
     RouterModule,
@@ -33,6 +37,7 @@ const modulos = [MatCardModule, MatInputModule, MatButtonModule, MatProgressSpin
     ...modulos,
     CardComponent,
     HeaderComponent,
+    AsideComponent
   ]
 })
 export class SharedModule { }
